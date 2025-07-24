@@ -9,21 +9,19 @@ class Solution:
         #     if present:
         #         c+=1
         # return c
-        # c1=0
-        # for i in words:
-        #     if set(i).issubset(set(allowed)):
-        #         c1+=1
-        # return c1
-        allowed_set = set(allowed) 
-        res = 0 
-        for word in words: 
-            for char in word: 
-                flag = True 
-                if char not in allowed_set: 
-                    flag = False 
-                    break 
-            if flag: 
-                res += 1 
-            
-
-        return res 
+        c1=0
+        for i in words:
+            if set(i).issubset(set(allowed)):
+                c1+=1
+        return c1
+        # allowed_set = set(allowed) 
+        # res = 0 
+        # for word in words: 
+        #     for char in word: 
+        #         flag = True 
+        #         if char not in allowed_set: 
+        #             flag = False 
+        #             break 
+        #     if flag: 
+        #         res += 1 
+        # return res 
