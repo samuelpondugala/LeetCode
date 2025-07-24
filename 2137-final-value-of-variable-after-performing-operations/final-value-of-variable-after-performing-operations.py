@@ -4,6 +4,6 @@ class Solution:
         for i in l:
             if i == "++X" or i=="X++":
                 res+=1
-            elif i == "--X" or i=="X--":
+            else:
                 res-=1
         return res
