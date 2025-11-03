@@ -1,9 +1,19 @@
 class Solution:
-    def minCost(self, s: str, cost: List[int]) -> int: 
-        res = max_cost = 0
-        for i in range(len(s)):
-            if i > 0 and s[i] != s[i - 1]:
-                max_cost = 0
-            res += min(max_cost, cost[i])
-            max_cost = max(max_cost, cost[i])
-        return res
+    def minCost(self, colors: str, neededTime: List[int]) -> int:
+        total = 0
+        last_ch = ''
+        last_time = 0
+        for ch, time in zip(colors, neededTime):
+            if ch == last_ch:
+                if time > last_time:
+                    total += last_time
+                    last_time = time
+                else:
+                    total += time
+            else:
+                last_ch = ch
+                last_time = time
+        return total
+                    
+            
+            
