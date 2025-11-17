@@ -1,9 +1,20 @@
+# class Solution:
+#     def kLengthApart(self, nums: List[int], k: int) -> bool:
+#         idx = -1
+#         for i in range(len(nums)):           
+#             if nums[i] == 1:
+#                 if idx != -1 and i - idx - 1 < k:
+#                     return False
+#                 idx = i
+#         return True
 class Solution:
     def kLengthApart(self, nums: List[int], k: int) -> bool:
-        idx = -1
-        for i in range(len(nums)):           
-            if nums[i] == 1:
-                if idx != -1 and i - idx - 1 < k:
+        if k == 0:
+            return True
+        prev = None
+        for i, num in enumerate(nums):
+            if num == 1:
+                if prev is not None and i - prev <= k:
                     return False
-                idx = i
+                prev = i
         return True
